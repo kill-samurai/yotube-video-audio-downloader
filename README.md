@@ -13,3 +13,5 @@ python project for a youtube video/audio downloader... WIP
 
 * Added functionality that allows you to select "Audio Only" Or "Video" on the main window.
 * Added a new prompt to inform the user that the download was completed successfully and the path where the file was saved.
+* Added Latest Mac Binary from latest code.
+* Added Windows Binary from latest code.
