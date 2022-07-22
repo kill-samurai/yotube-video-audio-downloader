@@ -5,15 +5,14 @@ from sys import platform
 
 
 class YouTube:
-    def __init__(self, url, mp3):
-        user = os.path.expanduser("~")
-        if platform == "darwin":
-            os.chdir(f"{user}/Downloads")
-        elif platform == "win32":
-            os.chdir(f"{user}\Downloads")
-        self.yt = pytube.YouTube(url=url, use_oauth=False, allow_oauth_cache=True)
+    def __init__(self, url, mp3, path):
+        self.mp3 = mp3
+        self.url = url
+        self.yt = pytube.YouTube(url=self.url, use_oauth=False, allow_oauth_cache=True)
         self.video_title = self.yt.title
-        self.audio_only = mp3
+        self.audio_only = self.mp3
+        os.chdir(path)
+
         self.check_vid_or_audio()
 
     def check_vid_or_audio(self):
@@ -32,4 +31,3 @@ class YouTube:
             stream = self.yt.streams.filter(progressive=True)
             download = stream.get_highest_resolution()
             download.download()
-

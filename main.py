@@ -1,3 +1,3 @@
-from window import Window as win
+from window import Window
 
-root = win()
+root = Window()
